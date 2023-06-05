@@ -1,4 +1,5 @@
 #include "lists.h"
+
 /**
  * check_cycle - checks for cycle in singly linked list
  * @list: items in singly linked list
@@ -19,7 +20,7 @@ int check_cycle(listint_t *list)
 		current = current->next;
 		temp = temp->next->next;
 
-		if (curent == temp)
+		if (current == temp)
 		{
 			return (1);
 		}
