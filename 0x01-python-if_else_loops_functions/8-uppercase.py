@@ -7,6 +7,3 @@ def uppercase(str):
             c = chr(x)
         print('{}'.format(c), end="")
     print()
-
-uppercase("best")
-uppercase("Best School 98 Battery street")
