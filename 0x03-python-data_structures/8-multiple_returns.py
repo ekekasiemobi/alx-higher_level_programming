@@ -2,8 +2,8 @@
 
 def multiple_returns(sentence):
     first = " "
-    length = len(sentence)
     for letters in sentence:
+        length = len(sentence)
         if length == 0:
             return (0, None)
         else:
