@@ -18,5 +18,5 @@ def roman_to_int(roman_string):
         if value < string_length - 1 and digit[value] < digit[value+1]:
             num = num - digit[value]
         else:
-            num = num + digit[value] 
+            num = num + digit[value]
     return num
