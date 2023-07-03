@@ -4,14 +4,16 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    my_list = [".", "?", ":"]
+    symbol = [".", "?", ":"]
     result = ""
     i = 0
 
-    while i < len(text):
+    word_length = len(text)
+    while i < word_length:
         result += text[i]
 
-        if text[i] in my_list
+        if text[i] in symbol:
             result += "\n\n"
 
         i += 1
+    print (result)
