@@ -77,7 +77,7 @@ class Rectangle:
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
 
-   @staticmethod
+    @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         """returns the rectangle based on biggest area"""
         if type(rect_1) is not Rectangle:
