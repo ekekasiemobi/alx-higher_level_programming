@@ -8,6 +8,7 @@ class Rectangle:
     """
    defines an a class rectangle
     """
+    number_of_instances = 0
 
     def __init__(self, width=0, height=0):
         """initializes private instance width and height"""
@@ -62,8 +63,9 @@ class Rectangle:
         for i in range(self.__height):
             for j in range(self.__width):
                 string += '#'
-            string += '\n'
-        return string[: -1]
+            if i < self.__height - 1:
+                string += '\n'
+        return string
 
     def __repr__(self):
         """Return a string of an object of the rectangle"""
