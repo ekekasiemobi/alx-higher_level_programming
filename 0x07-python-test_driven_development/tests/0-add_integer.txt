@@ -3,9 +3,19 @@ The ``0-add_integer`` module
 
 Using ``add_integer``
 -------------------
+Import module:
+        >>> mod = __import__("0-add_integer")
+
+check module documentation:
+        >>> len(mod.__doc__) > 1
+        True
 
 Importing the function from the module:
 	>>> add_integer = __import__("0-add_integer").add_integer
+
+check function documentation:
+       >>> len(add_integer.__doc__) > 1
+       True
 
 adding two positive integer
         >>> add_integer(1, 2)

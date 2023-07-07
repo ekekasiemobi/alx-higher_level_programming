@@ -5,6 +5,7 @@ and returns an integer
 
 """
 
+
 def add_integer(a, b=98):
     """
     argument must be an int else raise a type error
