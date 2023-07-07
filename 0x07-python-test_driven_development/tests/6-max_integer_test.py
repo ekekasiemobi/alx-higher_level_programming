@@ -40,7 +40,7 @@ class TestMaxInteger(unittest.TestCase):
         my_list = [80, 60, 10, 40, 30, 50]
         self.assertEqual(max_integer(my_list), 80)
 
-     def test_max_end(self):
+    def test_max_end(self):
         """Tests positive with max at the end"""
         my_list = [50, 30, 10, 40, 60, 80]
         self.assertEqual(max_integer(my_list), 80)
