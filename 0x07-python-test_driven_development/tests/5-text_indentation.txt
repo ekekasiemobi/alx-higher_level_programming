@@ -19,13 +19,12 @@ checking for a space after a string
         >>> text_indentation("""Kassy.  """)
         Kassy.
         <BLANKLINE>
-        <BLANKLINE>
 
 Checking for multiple spaces:
 	 >>> text_indentation("   kassy.  are you there?   ")
 	 kassy.
 	 <BLANKLINE>
-	 Are you there?
+	 are you there?
 	 <BLANKLINE>
 
 checking for space before a string
