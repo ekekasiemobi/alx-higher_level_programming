@@ -29,7 +29,7 @@ adding a negative integer and a positve integer
 
 adding a float and a negative integer
         >>> add_integer(8.2, -6)
-        2
+        -2
 
 Checking one arg:
 	 >>> add_integer(1)
