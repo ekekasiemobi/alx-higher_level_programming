@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ prints a text with new line"""
 
+
 def text_indentation(text):
     """ function that prints a new line after a symbol"""
     if not isinstance(text, str):

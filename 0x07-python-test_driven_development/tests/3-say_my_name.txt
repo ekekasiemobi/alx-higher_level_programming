@@ -1,8 +1,8 @@
 >>> say_my_name = __import__("3-say_my_name").say_my_name
 
 check two strings:
-	>>> say_my_name("Kasiemobi", "Eke")
-	My name is Kasiemobi Eke
+	 >>> say_my_name("Kasiemobi", "Eke")
+	 My name is Kasiemobi Eke
 
 Check for 0ne arg:
 	 >>> say_my_name("Kasiemobi")
