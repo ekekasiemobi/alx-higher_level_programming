@@ -20,6 +20,7 @@ class Rectangle(BaseGeometry):
         return "[{}] {}/{}".format(self.__class__.__name__,
                                    self.__width, self.__height)
 
+
 class Square(Rectangle):
     """Define a square(rectangle) """
     def __init__(self, size):
