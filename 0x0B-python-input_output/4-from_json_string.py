@@ -2,7 +2,7 @@
 """ this module returns an object rep of json"""
 
 
-def to_json_string(my_obj):
+def from_json_string(my_str):
     """defines a function that returns an obj rep of JSON"""
     import json
 
