@@ -8,9 +8,12 @@ from models.rectangle import Rectangle
 class Square(Rectangle):
     """defines a square"""
 
+
     def __init__(self, size, x=0, y=0, id=None):
-     """initialize size"""
+        """takes in similar arguments to rectangle"/
+        "replaces width and height with size"""
         super().__init__(size, size, x, y, id)
+
 
     @property
     def size(self):
