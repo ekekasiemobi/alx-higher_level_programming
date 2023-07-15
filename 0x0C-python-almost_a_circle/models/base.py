@@ -35,14 +35,14 @@ class Base:
                 json_string = cls.to_json_string(list_dicts)
                 jsonfile.write(json_string)
 
-     @staticmethod
-     def from_json_string(json_string):
+    @staticmethod
+    def from_json_string(json_string):
          if json_string is None:
             return "[]"
-        return json.loads(json_string)
+         return json.loads(json_string)
 
-     @classmethod
-     def create(cls, **dictionary):
+    @classmethod
+    def create(cls, **dictionary):
         if dictionary and dictionary != {}:
             if cls.__name__ == "Rectangle":
                 new = cls(1, 1)
