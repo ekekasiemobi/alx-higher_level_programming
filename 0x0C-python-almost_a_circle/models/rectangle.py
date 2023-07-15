@@ -21,7 +21,7 @@ class Rectangle(Base):
     def width(self):
         return self.__width
 
-   @width.setter
+    @width.setter
     def width(self, value):
         if type(value) != int:
             raise TypeError("width must be an integer")
@@ -29,19 +29,19 @@ class Rectangle(Base):
             raise ValueError("width must be > 0")
         self.__width = value
 
-   @property
-   def height(self):
+    @property
+    def height(self):
         return self.__height
 
-   @height.setter
-   def height(self, value):
+    @height.setter
+    def height(self, value):
         if type(value) != int:
             raise TypeError("height must be an integer")
         if value <= 0:
             raise ValueError("height must be > 0")
         self.__height = value
 
-   @property
+    @property
     def x(self):
         return self.__x
 
@@ -65,7 +65,7 @@ class Rectangle(Base):
             raise ValueError("y must be >= 0")
         self.__y = value
 
-     def area(self):
+    def area(self):
         """returns the area of the class"""
         return self.width * self.height
 
@@ -77,13 +77,13 @@ class Rectangle(Base):
             [print("#", end="") for w in range(self.width)]
             print()
 
-     def __str__(self):
+    def __str__(self):
         """Return the print() and str() representation of the Rectangle."""
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
                                                        self.x, self.y,
                                                        self.width, self.height)
 
-     def update(self, *args, **kwargs):
+    def update(self, *args, **kwargs):
         """
             updates propeties of a class instance
             with args or kwargs if args is not passed
@@ -112,7 +112,7 @@ class Rectangle(Base):
             if "y" in kwargs:
                 self.y = kwargs["y"]
 
-     def to_dictionary(self):
+    def to_dictionary(self):
         """Return the dict rep of a Rectangle."""
         return {
             "id": self.id,
