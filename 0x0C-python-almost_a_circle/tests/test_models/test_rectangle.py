@@ -62,3 +62,21 @@ class TestRectangle_height(unittest.TestCase):
     def test_float_height(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             r = Rectangle(10, 5.27)
+
+class TestRectangle_x(unittest.TestCase):
+
+    def test_None_x(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            r = Rectangle(2, 4, None)
+
+    def test_str_x(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            r = Rectangle(2, 4, "hello")
+
+     def test_invalid_x(self):
+        with self.assertRaisesRegex(ValueError, "width must be greater than zero"):
+            r = Rectangle(2, 4, 0)
+
+    def test_float_x(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            r = Rectangle(5, 10, 5.27)
