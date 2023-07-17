@@ -115,7 +115,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s.y, 5)
 
     def test_update_kwargs(self):
-        s = Square(1, 1, 1, 1)
+        s = Square(10, 4, 6, 2)
         with self.assertRaises(TypeError):
             s.update(size="hello")
         with self.assertRaises(TypeError):
@@ -123,14 +123,18 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(TypeError):
             s.update(y="hello")
         with self.assertRaises(ValueError):
-            s.update(size=-1)
+            s.update(size=-8)
         with self.assertRaises(ValueError):
             s.update(size=0)
         with self.assertRaises(ValueError):
-            s.update(x=-1)
+            s.update(x=-4)
         with self.assertRaises(ValueError):
-            s.update(y=-1)
+            s.update(y=-6)
+
     def test_to_dictionary(self):
         s = Square(10, 4, 6, 2)
         expected_dict = {'id': 2, 'size': 10, 'x': 4, 'y': 6}
         self.assertDictEqual(s.to_dictionary(), expected_dict)
+
+if __name__ == "__main__":
+    unittest.main()

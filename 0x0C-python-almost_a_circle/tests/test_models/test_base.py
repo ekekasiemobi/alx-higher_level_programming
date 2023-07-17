@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """Tests case for base.py"""
 
-from models.base import Base
-from models.rectangle import Rectangle
+from models import Base
+from models  import Rectangle
 import unittest
 
 class TestBase(unittest.TestCase):
@@ -53,8 +53,8 @@ class TestBase(unittest.TestCase):
         r_inst = Rectangle(10, 17, 2, 8, 70)
         json_data = Base.to_json_string([r_inst])
         self.assertEqual(type(json_data), str)
- 
-     def test_to_json_String(self):
+
+    def test_to_json_String(self):
         rect_data = {'id': 31, 'x': 14, 'y': 10, 'width': 5, 'height': 5}
         json_data = Base.to_json_string([rect_data])
 
@@ -62,7 +62,7 @@ class TestBase(unittest.TestCase):
         self.assertTrue(isinstance(json_data, str))
         self.assertCountEqual(
             json_data,
-            '{["id": 31, "x": 14, "y": 10, "width": 5, "height": 5]}'
+            '[{"id": 31, "x": 14, "y": 10, "width": 5, "height": 5}]'
         )
 
     def test_save_to_file(self):
@@ -101,8 +101,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(json_l[1],
                          {"id": 2, "width": 2, "height": 3, "x": 4, "y": 0})
 
-
-     def test_load_from_file(self):
+    def test_load_from_file(self):
         Base._Base__nb_objects = 0
         r1 = Rectangle(4, 6, 2, 1, 12)
         r2 = Rectangle(4, 6)
