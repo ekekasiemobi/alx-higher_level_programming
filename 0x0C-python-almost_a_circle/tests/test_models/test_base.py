@@ -114,3 +114,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(lst[0].__str__(), "[Rectangle]  (12) 2/1 - 4/6'")
         self.assertIsInstance(lst[1], Rectangle)
         self.assertEqual(lst[1].__str__(), "[Rectangle] (2) 0/0 - 4/6")
+
+
+if __name__ == "__main__":
+    unittest.main()
