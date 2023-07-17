@@ -11,16 +11,16 @@ def setUp(self):
 
 class TestRectangle(unittest.TestCase):
     def test_rectangle_creation(self):
-        r = Rectangle(5, 10, 6, 7, 1)
-        self.assertEqual(r.width, 5)
+        r = Rectangle(8, 10, 4, 6, 2)
+        self.assertEqual(r.width, 8)
         self.assertEqual(r.height, 10)
-        self.assertEqual(r.x, 6)
-        self.assertEqual(r.y, 7)
-        self.assertIsNotNone(r.1)
+        self.assertEqual(r.x, 4)
+        self.assertEqual(r.y, 6)
+        self.assertIsNotNone(r.2)
 
     def test_rectangle_defalut_atrr(self):
-        r = Rectangle(5, 10)
-        self.assertEqual(r.width, 5)
+        r = Rectangle(8, 10)
+        self.assertEqual(r.width, 8)
         self.assertEqual(r.height, 10)
         self.assertEqual(r.x, 0)
         self.assertEqual(r.y, 0)
@@ -31,11 +31,11 @@ class TestRectangle_width(unittest.TestCase):
 
     def test_None_width(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            r = Rectangle(None, 2)
+            r = Rectangle(None, 10)
 
     def test_str_width(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            r = Rectangle("hello", 2)
+            r = Rectangle("hello", 10)
 
      def test_invalid_width(self):
         with self.assertRaisesRegex(ValueError, "width must be greater than zero"):
@@ -43,40 +43,58 @@ class TestRectangle_width(unittest.TestCase):
 
     def test_float_width(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            r = Rectangle("5.27", 10)
+            r = Rectangle("8.27", 10)
 
 class TestRectangle_height(unittest.TestCase):
 
     def test_None_height(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            r = Rectangle(2, None)
+            r = Rectangle(8, None)
 
     def test_str_height(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            r = Rectangle(2, "hello")
+            r = Rectangle(8, "hello")
 
      def test_invalid_height(self):
         with self.assertRaisesRegex(ValueError, "width must be greater than zero"):
-            r = Rectangle(10, 0)
+            r = Rectangle(8, 0)
 
     def test_float_height(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            r = Rectangle(10, 5.27)
+            r = Rectangle(8, 10.27)
 
 class TestRectangle_x(unittest.TestCase):
 
     def test_None_x(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            r = Rectangle(2, 4, None)
+            r = Rectangle(8, 10, None)
 
     def test_str_x(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            r = Rectangle(2, 4, "hello")
+            r = Rectangle(8, 10, "hello")
 
      def test_invalid_x(self):
         with self.assertRaisesRegex(ValueError, "width must be greater than zero"):
-            r = Rectangle(2, 4, 0)
+            r = Rectangle(8, 10, 0)
 
     def test_float_x(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            r = Rectangle(5, 10, 5.27)
+            r = Rectangle(8, 10, 4.27)
+
+class TestRectangle_y(unittest.TestCase):
+
+    def test_None_y(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            r = Rectangle(8, 10, 4, None)
+
+    def test_str_y(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            r = Rectangle(8, 10, 4, "hello")
+
+     def test_invalid_y(self):
+        with self.assertRaisesRegex(ValueError, "width must be greater than zero"):
+            r = Rectangle(8, 10, 4, 0)
+
+    def test_float_y(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            r = Rectangle(8, 10, 4, 6.27)
