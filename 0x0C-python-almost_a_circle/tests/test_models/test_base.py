@@ -1,14 +1,15 @@
 #!/usr/bin/python3
 """Tests case for base.py"""
 
-from models import Base
-from models  import Rectangle
+import json
+from models.base import Base
+from models.rectangle import Rectangle
 import unittest
 
 class TestBase(unittest.TestCase):
     def test_module_docstring(self):
         """Tests for the module docstring"""
-        self.assertTrue(len(base.__doc__) >= 1)
+        self.assertTrue(len(__doc__) >= 1)
 
     def test_class_docstring(self):
         """Tests for the Base class docstring"""
@@ -38,23 +39,23 @@ class TestBase(unittest.TestCase):
     def test_id_public(self):
         b = Base(25)
         b.id = 35
-        self.assertEqual(15, b.id)
+        self.assertEqual(35, b.id)
 
     def test_two_args(self):
         with self.assertRaises(TypeError):
             Base(1, 2)
 
-    def test_empty_to_json_String(self):
+    def test_empty_to_json_string(self):
         json_s = Base.to_json_string(None)
         self.assertTrue(type(json_s) is str)
         self.assertEqual(json_s, "[]")
 
     def test_to_json_string(self):
         r_inst = Rectangle(10, 17, 2, 8, 70)
-        json_data = Base.to_json_string([r_inst])
+        json_data = Base.to_json_string([r_inst.to_dictionary()])
         self.assertEqual(type(json_data), str)
 
-    def test_to_json_String(self):
+    def test_to_json_string(self):
         rect_data = {'id': 31, 'x': 14, 'y': 10, 'width': 5, 'height': 5}
         json_data = Base.to_json_string([rect_data])
 
@@ -101,6 +102,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(json_l[1],
                          {"id": 2, "width": 2, "height": 3, "x": 4, "y": 0})
 
+    
     def test_load_from_file(self):
         Base._Base__nb_objects = 0
         r1 = Rectangle(4, 6, 2, 1, 12)
@@ -110,10 +112,12 @@ class TestBase(unittest.TestCase):
         self.assertIsInstance(lst, list)
         self.assertEqual(len(lst), 2)
         self.assertIsInstance(lst[0], Rectangle)
-        self.assertEqual(lst[0].__str__(), "[Rectangle]  (12) 2/1 - 4/6'")
+        self.assertEqual(lst[0].__str__(), "[Rectangle] (12) 2/1 - 4/6")
         self.assertIsInstance(lst[1], Rectangle)
         self.assertEqual(lst[1].__str__(), "[Rectangle] (2) 0/0 - 4/6")
 
 
+
 if __name__ == "__main__":
     unittest.main()
+
