@@ -16,7 +16,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r.height, 10)
         self.assertEqual(r.x, 4)
         self.assertEqual(r.y, 6)
-        self.assertIsNotNone(r.2)
+        self.assertIsNotNone(r.id, 2)
 
     def test_rectangle_defalut_atrr(self):
         r = Rectangle(8, 10)
@@ -37,7 +37,7 @@ class TestRectangle_width(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             r = Rectangle("hello", 10)
 
-     def test_invalid_width(self):
+    def test_invalid_width(self):
         with self.assertRaisesRegex(ValueError, "width must be greater than zero"):
             r = Rectangle(0, 10)
 
@@ -53,7 +53,7 @@ class TestRectangle_width(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
             r = Rectangle(8, "hello")
 
-     def test_invalid_height(self):
+    def test_invalid_height(self):
         with self.assertRaisesRegex(ValueError, "height must be greater than zero"):
             r = Rectangle(8, 0)
 
@@ -69,7 +69,7 @@ class TestRectangle_width(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             r = Rectangle(8, 10, "hello")
 
-     def test_invalid_x(self):
+    def test_invalid_x(self):
         with self.assertRaisesRegex(ValueError, "x must be greater than zero"):
             r = Rectangle(8, 10, 0)
 
@@ -85,7 +85,7 @@ class TestRectangle_width(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             r = Rectangle(8, 10, 4, "hello")
 
-     def test_invalid_y(self):
+    def test_invalid_y(self):
         with self.assertRaisesRegex(ValueError, "y must be greater than zero"):
             r = Rectangle(8, 10, 4, 0)
 
@@ -97,19 +97,19 @@ class TestRectangle_width(unittest.TestCase):
         r = Rectangle(8, 10)
         self.assertEqual(r.area(), 80)
 
-    def test_area_calculation(self)
+    def test_area_calculation(self):
         r = Rectangle(8, 10, 0, 0, 2)
-        self.assertEqual(80, r.area())
+        self.assertEqual(r.area(), 80)
 
     def test_area_small(self):
         r = Rectangle(8, 10, 0, 0, 0)
-        self.assertEqual(80, r.area())
+        self.assertEqual(r.area(), 80)
 
     def test_invalid_args(self):
         with self.assertRaises(TypeError):
             Rectangle(8, 10, 4, 8, 2, 1)
 
-    def test_less_args(self)
+    def test_less_args(self):
         with self.assertRaises(TypeError):
             Rectangle(8)
             Rectangle()
