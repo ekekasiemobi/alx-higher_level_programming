@@ -56,7 +56,7 @@ class TestSquare(unittest.TestCase):
 
     def test_invalid_x(self):
         with self.assertRaisesRegex(ValueError, "x must be >= 0"):
-            Square(10, 0)
+            Square(10, -4)
 
     def test_float_x(self):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
@@ -71,8 +71,8 @@ class TestSquare(unittest.TestCase):
             Square(10, 4, "hello")
 
     def test_invalid_y(self):
-        with self.assertRaises(ValueError, "y must be >= 0"):
-            Square(10, 4, 0)
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
+            Square(10, 4, -1)
 
     def test_float_y(self):
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
