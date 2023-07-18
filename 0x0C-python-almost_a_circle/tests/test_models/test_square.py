@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Test cases for square.pyS"""
+"""Test cases for square.py"""
 import io
 from models.square import Square
 from models.base import Base
@@ -8,22 +8,22 @@ import unittest
 
 class TestSquare(unittest.TestCase):
 
-     def test_init(self):
+    def test_init(self):
         Base._Base__nb_objects = 0
         s = Square(10)
         self.assertEqual(s.id, 1)
         self.assertEqual(s.size, 10)
-        self.assertEqual(s2.width, 10)
-        self.assertEqual(s2.height, 10)
+        self.assertEqual(s.width, 10)
+        self.assertEqual(s.height, 10)
         self.assertEqual(s.x, 0)
         self.assertEqual(s.y, 0)
 
     def test_init_with_given_attr(self):
         s = Square(10, 4, 6, 2)
         self.assertEqual(s.id, 2)
+        self.assertEqual(s.size, 10)
         self.assertEqual(s.width, 10)
         self.assertEqual(s.height, 10)
-        self.assertEqual(s.size, 10)
         self.assertEqual(s.x, 4)
         self.assertEqual(s.y, 6)
 
@@ -48,45 +48,45 @@ class TestSquare(unittest.TestCase):
 
     def test_None_x(self):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            r = Rectangle(10, None)
+            Square(10, None)
 
     def test_string_x(self):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            r = Rectangle(10, "hello")
+            Square(10, "hello")
 
     def test_invalid_x(self):
         with self.assertRaisesRegex(ValueError, "x must be >= 0"):
-            r = Rectangle(10, 0)
+            Square(10, 0)
 
     def test_float_x(self):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            r = Rectangle(10, 4.27)
+            Square(10, 4.27)
 
     def test_None_y(self):
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            r = Rectangle(10, 4, None)
+            Square(10, 4, None)
 
     def test_str_y(self):
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            r = Rectangle(10, 4, "hello")
+            Square(10, 4, "hello")
 
     def test_invalid_y(self):
-        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
-            r = Rectangle(10, 4, 0)
+        with self.assertRaises(ValueError, "y must be >= 0"):
+            Square(10, 4, 0)
 
     def test_float_y(self):
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            r = Rectangle(10, 4, 6.27)
+            Square(10, 4, 6.27)
 
     def test_invalid_args(self):
         with self.assertRaises(TypeError):
-            Rectangle(8, 10, 4, 8, 2, 1)
+            Square(8, 10, 4, 8, 2, 1)
 
     def test_less_args(self):
         with self.assertRaises(TypeError):
-            Rectangle(8)
-            Rectangle()
-            Rectangle(None)
+            Square(8)
+            Square()
+            Square(None)
 
     def test_class(self):
         s = Square(10)
@@ -135,6 +135,7 @@ class TestSquare(unittest.TestCase):
         s = Square(10, 4, 6, 2)
         expected_dict = {'id': 2, 'size': 10, 'x': 4, 'y': 6}
         self.assertDictEqual(s.to_dictionary(), expected_dict)
+
 
 if __name__ == "__main__":
     unittest.main()
