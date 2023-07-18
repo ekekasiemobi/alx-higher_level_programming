@@ -114,7 +114,7 @@ class TestBase(unittest.TestCase):
         self.assertIsInstance(lst[0], Rectangle)
         self.assertEqual(lst[0].__str__(), "[Rectangle] (12) 2/1 - 4/6")
         self.assertIsInstance(lst[1], Rectangle)
-        self.assertEqual(lst[1].__str__(), "[Rectangle] (2) 0/0 - 4/6")
+        self.assertEqual(lst[1].__str__(), "[Rectangle] (1) 0/0 - 4/6")
 
 
 

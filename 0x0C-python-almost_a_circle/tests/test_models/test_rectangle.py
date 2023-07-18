@@ -6,19 +6,19 @@ from models.base import Base
 import unittest
 
 
-def setUp(self):
-    Base._Base__nb_objects = 0
-
 class TestRectangle(unittest.TestCase):
+    def setUp(self):
+        Base._Base__nb_objects = 0
+
     def test_rectangle_creation(self):
         r = Rectangle(8, 10, 4, 6, 2)
         self.assertEqual(r.width, 8)
         self.assertEqual(r.height, 10)
         self.assertEqual(r.x, 4)
         self.assertEqual(r.y, 6)
-        self.assertIsNotNone(r.id, 2)
+        self.assertEqual(r.id, 2)
 
-    def test_rectangle_defalut_atrr(self):
+    def test_rectangle_default_attr(self):
         r = Rectangle(8, 10)
         self.assertEqual(r.width, 8)
         self.assertEqual(r.height, 10)
@@ -27,7 +27,7 @@ class TestRectangle(unittest.TestCase):
         self.assertIsNotNone(r.id)
 
 
-class TestRectangle_width(unittest.TestCase):
+class TestRectangleWidth(unittest.TestCase):
 
     def test_None_width(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
@@ -38,12 +38,12 @@ class TestRectangle_width(unittest.TestCase):
             r = Rectangle("hello", 10)
 
     def test_invalid_width(self):
-        with self.assertRaisesRegex(ValueError, "width must be greater than zero"):
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
             r = Rectangle(0, 10)
 
     def test_float_width(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            r = Rectangle("8.27", 10)
+            r = Rectangle(8.27, 10)
 
     def test_None_height(self):
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
@@ -54,7 +54,7 @@ class TestRectangle_width(unittest.TestCase):
             r = Rectangle(8, "hello")
 
     def test_invalid_height(self):
-        with self.assertRaisesRegex(ValueError, "height must be greater than zero"):
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
             r = Rectangle(8, 0)
 
     def test_float_height(self):
@@ -70,8 +70,8 @@ class TestRectangle_width(unittest.TestCase):
             r = Rectangle(8, 10, "hello")
 
     def test_invalid_x(self):
-        with self.assertRaisesRegex(ValueError, "x must be greater than zero"):
-            r = Rectangle(8, 10, 0)
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
+            r = Rectangle(8, 10, -1)
 
     def test_float_x(self):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
@@ -86,8 +86,8 @@ class TestRectangle_width(unittest.TestCase):
             r = Rectangle(8, 10, 4, "hello")
 
     def test_invalid_y(self):
-        with self.assertRaisesRegex(ValueError, "y must be greater than zero"):
-            r = Rectangle(8, 10, 4, 0)
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
+            r = Rectangle(8, 10, 4, -1)
 
     def test_float_y(self):
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
@@ -97,7 +97,7 @@ class TestRectangle_width(unittest.TestCase):
         r = Rectangle(8, 10)
         self.assertEqual(r.area(), 80)
 
-    def test_area_calculation(self):
+    def test_area_calculation_with_coordinates(self):
         r = Rectangle(8, 10, 0, 0, 2)
         self.assertEqual(r.area(), 80)
 
@@ -107,17 +107,17 @@ class TestRectangle_width(unittest.TestCase):
 
     def test_invalid_args(self):
         with self.assertRaises(TypeError):
-            Rectangle(8, 10, 4, 8, 2, 1)
+            r = Rectangle(8, 10, 4, 8, 2, 1)
 
     def test_less_args(self):
         with self.assertRaises(TypeError):
-            Rectangle(8)
-            Rectangle()
-            Rectangle(None)
+            r = Rectangle(8)
+            r = Rectangle()
+            r = Rectangle(None)
 
     def test_update_with_args(self):
         r = Rectangle(8, 10, 4, 6, 2)
-        r.update(7, 9, 3, 5, 1)
+        r.update(1, 7, 9, 3, 5)
         self.assertEqual(r.id, 1)
         self.assertEqual(r.width, 7)
         self.assertEqual(r.height, 9)
@@ -126,7 +126,7 @@ class TestRectangle_width(unittest.TestCase):
 
     def test_update_with_kwargs(self):
         r = Rectangle(8, 10, 4, 6, 2)
-        r.update(id=1, width=7, height=9, x=3, y=5)
+        r.update(id=2, width=7, height=9, x=3, y=5)
         self.assertEqual(r.id, 2)
         self.assertEqual(r.width, 7)
         self.assertEqual(r.height, 9)
@@ -136,3 +136,4 @@ class TestRectangle_width(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+

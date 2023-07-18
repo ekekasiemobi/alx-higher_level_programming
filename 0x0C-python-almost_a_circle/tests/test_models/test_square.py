@@ -18,7 +18,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s.x, 0)
         self.assertEqual(s.y, 0)
 
-    def test_init_with_given_attr(self)
+    def test_init_with_given_attr(self):
         s = Square(10, 4, 6, 2)
         self.assertEqual(s.id, 2)
         self.assertEqual(s.width, 10)
@@ -54,8 +54,8 @@ class TestSquare(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             r = Rectangle(10, "hello")
 
-     def test_invalid_x(self):
-        with self.assertRaisesRegex(ValueError, "x must be greater than zero"):
+    def test_invalid_x(self):
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
             r = Rectangle(10, 0)
 
     def test_float_x(self):
@@ -70,8 +70,8 @@ class TestSquare(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             r = Rectangle(10, 4, "hello")
 
-     def test_invalid_y(self):
-        with self.assertRaisesRegex(ValueError, "y must be greater than zero"):
+    def test_invalid_y(self):
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
             r = Rectangle(10, 4, 0)
 
     def test_float_y(self):
@@ -82,7 +82,7 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(TypeError):
             Rectangle(8, 10, 4, 8, 2, 1)
 
-    def test_less_args(self)
+    def test_less_args(self):
         with self.assertRaises(TypeError):
             Rectangle(8)
             Rectangle()
