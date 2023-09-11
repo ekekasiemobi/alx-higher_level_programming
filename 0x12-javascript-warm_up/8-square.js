@@ -12,6 +12,8 @@ if (args[2]) {
       }
       console.log(square);
     }
+  } else {
+     console.log('Missing size');
   }
 } else {
    console.log('Missing size');
