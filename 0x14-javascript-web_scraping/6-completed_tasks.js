@@ -16,8 +16,7 @@ request(url, function (err, response, body) {
     } else if (task.dic) {
       dic[task.userId]++;
     }
-  } else {
+  }
 
   console.log(dic);
-  }
 });
