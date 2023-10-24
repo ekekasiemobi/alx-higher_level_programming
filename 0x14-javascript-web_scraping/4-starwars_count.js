@@ -6,7 +6,7 @@ let count = 0;
 
 request(url, function (error, response, body) {
   if (error) {
-    consol.log(error);
+    console.log(error);
   } else {
     const films = JSON.parse(body).results;
     for (const film of films) {
